@@ -13,20 +13,14 @@ console.log("El tercer array te nombres que es repeteixen? " + EsRepeteix(c));
 
 
 function EsRepeteix(arr){
-    var esRepeteix = false;
-    for(let i = 0; i < arr.length; i++){
-        var contador = 0;
-        for(let j = 0; j < arr.length; j++){
-        if(arr[i] == arr[j])
-        {
-            contador++
-            if (contador>=2){
-                esRepeteix = true
-            }
+    const set = new Set();
+    var trobat = false
+    for (let i = 0; i < arr.length; i++) {
+        if (set.has(arr[i])) { 
+            trobat = true;
         }
+        set.add(arr[i]); 
     }
-    }
-
-    return esRepeteix;
+    return trobat; 
 }
 
